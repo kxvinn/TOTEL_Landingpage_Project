@@ -55,9 +55,9 @@ const Navbar = () => {
           aria-label="Pulse Robot"
         >
           <img 
-            src="/logo.svg" 
-            alt="Pulse Robot Logo" 
-            className="h-7 sm:h-8" 
+            src="/logototel.webp" 
+            alt="Totel Logo" 
+            className="h-14 sm:h-20" 
           />
         </a>
 

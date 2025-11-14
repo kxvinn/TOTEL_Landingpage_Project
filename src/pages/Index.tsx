@@ -13,7 +13,6 @@ import MadeByHumans from "@/components/MadeByHumans";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  // Initialize intersection observer to detect when elements enter viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -26,32 +25,32 @@ const Index = () => {
       },
       { threshold: 0.1 }
     );
-    
     const elements = document.querySelectorAll(".animate-on-scroll");
     elements.forEach((el) => observer.observe(el));
-    
     return () => {
       elements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
   useEffect(() => {
-    // This helps ensure smooth scrolling for the anchor links
+    // Scroll suave para âncoras
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
         const targetId = this.getAttribute('href')?.substring(1);
         if (!targetId) return;
-        
         const targetElement = document.getElementById(targetId);
         if (!targetElement) return;
         
-        // Increased offset to account for mobile nav
-        const offset = window.innerWidth < 768 ? 100 : 80;
+        // Para seções sticky, usar offset maior
+        const isStickySection = targetId === 'why-humanoid';
+        const offset = isStickySection 
+          ? (window.innerWidth < 768 ? 120 : 100)
+          : (window.innerWidth < 768 ? 100 : 80);
         
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
-          top: targetElement.offsetTop - offset,
+          top: elementPosition - offset,
           behavior: 'smooth'
         });
       });
@@ -61,7 +60,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="space-y-4 sm:space-y-8"> {/* Reduced space on mobile */}
+      <main className="space-y-4 sm:space-y-8">
         <Hero />
         <HumanoidSection />
         <SpecsSection />

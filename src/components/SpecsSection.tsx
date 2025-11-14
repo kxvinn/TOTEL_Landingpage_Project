@@ -20,8 +20,9 @@ const SpecsSection = () => {
         <div className="max-w-5xl pl-4 sm:pl-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display leading-tight mb-8 sm:mb-12">
             <span className="block bg-clip-text text-transparent bg-[url('/text-mask-image.jpg')] bg-cover bg-center">
-              Atlas works with your team, not instead of it. By handling repetitive tasks, improving safety conditions, and learning from every interaction, Atlas helps humans focus on what they do best: create, solve, and innovate.
+              Campanhas Envolventes · Sorteios Exclusivos · Votações Interativas · Promoções Irresistíveis · Clube de Vantagens · Guia Comercial
             </span>
+            <span className="block text-lg text-gray-700 mt-6">Crie campanhas cativantes, sorteios, votações, promoções e ofereça vantagens exclusivas em um guia comercial completo, fortalecendo o engajamento e resultados da sua marca.</span>
           </h2>
         </div>
       </div>

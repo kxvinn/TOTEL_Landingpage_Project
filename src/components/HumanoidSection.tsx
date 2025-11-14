@@ -96,13 +96,21 @@ const HumanoidSection = () => {
                 animationDelay: "0.1s"
               }}>
                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">02</span>
-                <span>Humanoid</span>
+                <span>Resultados</span>
               </div>
             </div>
             
             <h2 className="section-title text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-1 md:mb-2">
-              Why Humanoid
+              Alcance resultados que importam
             </h2>
+            <div className="max-w-lg">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-black font-bold leading-tight mb-4">
+                Um aplicativo, diversas possibilidades
+              </h3>
+              <p>
+                Explore um mundo de possibilidades com o nosso aplicativo versátil
+              </p>
+            </div>
           </div>
           
           <div ref={cardsContainerRef} className="relative flex-1 perspective-1000">
@@ -128,15 +136,21 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                  <span className="text-sm font-medium">Features 01</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    We're giving AI a way to navigate the physical world
+                    Experiência única<br/>Design personalizado
                   </h3>
+                  <p className="text-white">Personalize cada aspecto do aplicativo para refletir sua identidade visual. Escolha cores, logotipo e marca para uma experiência exclusiva.</p>
+                  <ul className="list-inside list-disc text-base mt-4 text-white">
+                    <li>Personalize cada detalhe do aplicativo</li>
+                    <li>Construa sua imagem consistente e memorável</li>
+                    <li>Sem necessidade de programação adicional</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -164,15 +178,21 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                  <span className="text-sm font-medium">Features 02</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    We're bringing adaptive intelligence to where humans work
+                    Escalabilidade superior<br/>Cresça conosco
                   </h3>
+                  <p className="text-white">Nossa infraestrutura em nuvem é altamente escalável, permitindo um crescimento uniforme. Estamos prontos para evoluir junto com o seu sucesso.</p>
+                  <ul className="list-inside list-disc text-base mt-4 text-white">
+                    <li>Infraestrutura em nuvem altamente eficiente</li>
+                    <li>Cresça sem preocupações com custos adicionais</li>
+                    <li>Alta velocidade e confiabilidade</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -200,15 +220,24 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                  <span className="text-sm font-medium">Features 03 e Melhorias</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    We're creating companions, <span className="text-[#FC4D0A]">not replacements</span>
+                    Atualizações periódicas<br/>Sempre à frente<br/>
+                    Melhorias contínuas<br/>Inovação constante
                   </h3>
+                  <p className="text-white">Priorizamos manter todos os aplicativos atualizados com as versões mais recentes. Investimos em um fluxo de melhoria contínua para manter todos os aplicativos na vanguarda. Desfrute de todas as melhorias que implementamos, proporcionando uma experiência cada vez mais aprimorada.</p>
+                  <ul className="list-inside list-disc text-base mt-4 text-white">
+                    <li>Maior compatibilidade com Android e iOS</li>  
+                    <li>Acompanha as novidades do mercado</li>
+                    <li>Reduza os custos com time de tecnologia</li>
+                    <li>Aproveite todas as melhorias e inovações</li>
+                    <li>Valorizamos seu feedback para melhorias contínuas</li>
+                  </ul>
                 </div>
               </div>
             </div>
