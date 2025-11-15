@@ -92,11 +92,11 @@ const HumanoidSection = () => {
         <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col">
           <div className="mb-2 md:mb-3">
             <div className="flex items-center gap-4 mb-2 md:mb-2 pt-8 sm:pt-6 md:pt-4">
-              <div className="pulse-chip opacity-0 animate-fade-in" style={{
+              <div className="pulse-chip opacity-0 bg-pulse-950 animate-fade-in" style={{
                 animationDelay: "0.1s"
               }}>
-                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-800 text-white mr-2">02</span>
-                <span className="text-pulse-800">Resultados</span>
+                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-900 text-white mr-2">02</span>
+                <span className="text-white">Resultados</span>
               </div>
             </div>
             
@@ -136,7 +136,7 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">Features 01</span>
+                  <span className="text-sm font-medium">Experiência Única</span>
                 </div>
               </div>
               
@@ -178,7 +178,7 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">Features 02</span>
+                  <span className="text-sm font-medium">Escalabilidade Superior</span>
                 </div>
               </div>
               
@@ -220,7 +220,7 @@ const HumanoidSection = () => {
               
               <div className="absolute top-4 right-4 z-20">
                 <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">Features 03 e Melhorias</span>
+                  <span className="text-sm font-medium">Atualizações Periódicas</span>
                 </div>
               </div>
               
@@ -233,7 +233,7 @@ const HumanoidSection = () => {
                   <p className="text-white">Priorizamos manter todos os aplicativos atualizados com as versões mais recentes. Investimos em um fluxo de melhoria contínua para manter todos os aplicativos na vanguarda. Desfrute de todas as melhorias que implementamos, proporcionando uma experiência cada vez mais aprimorada.</p>
                   <ul className="list-inside list-disc text-base mt-4 text-white">
                     <li>Maior compatibilidade com Android e iOS</li>  
-                    <li>Acompanha as novidades do mercado</li>
+                    <li>Acompanhe as novidades do mercado</li>
                     <li>Reduza os custos com time de tecnologia</li>
                     <li>Aproveite todas as melhorias e inovações</li>
                     <li>Valorizamos seu feedback para melhorias contínuas</li>

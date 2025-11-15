@@ -8,9 +8,9 @@ const SpecsSection = () => {
         {/* Header with badge and line */}
         <div className="flex items-center gap-4 mb-8 sm:mb-16">
           <div className="flex items-center gap-4">
-            <div className="pulse-chip">
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-800 text-white mr-2">3</span>
-              <span className="text-pulse-800">Specs</span>
+            <div className="pulse-chip bg-pulse-950">
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-900 text-white mr-2">3</span>
+              <span className="text-white">Sua marca no topo</span>
             </div>
           </div>
           <div className="flex-1 h-[1px] bg-gray-300"></div>

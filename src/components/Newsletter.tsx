@@ -17,8 +17,8 @@ const Newsletter = () => {
     // Simulate API call
     setTimeout(() => {
       toast({
-        title: "Thank you for subscribing!",
-        description: "You'll receive updates about Atlas soon."
+        title: "Obrigado por entrar em contato!",
+        description: "Você receberá um retorno da nossa equipe da Totel em breve."
       });
       setEmail("");
       setIsSubmitting(false);
@@ -28,9 +28,9 @@ const Newsletter = () => {
       <div className="section-container opacity-0 animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-6">
-            <div className="pulse-chip">
+            <div className="pulse-chip bg-pulse-950">
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-800 text-white mr-2">05</span>
-              <span className="text-pulse-800">Contato</span>
+              <span className="text-white">Contato</span>
             </div>
           </div>
           <h2 className="text-5xl font-display font-bold mb-4 text-left">Ficou com Dúvidas?</h2>
@@ -41,7 +41,7 @@ const Newsletter = () => {
             <div className="relative flex-grow">
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Seu email" className="w-full px-6 py-4 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pulse-500 text-gray-700" required />
             </div>
-            <button type="submit" disabled={isSubmitting} className="bg-pulse-600 hover:bg-pulse-900 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 md:ml-4">
+            <button type="submit" disabled={isSubmitting} className="bg-pulse-950 hover:bg-pulse-900 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 md:ml-4">
               {isSubmitting ? "Enviando..." : "Entre em Contato"}
             </button>
           </form>

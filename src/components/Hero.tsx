@@ -118,17 +118,17 @@ const Hero = () => {
         padding: isMobile ? '180px 12px 140px' : '260px 20px 180px'
       }}
     >
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-lg rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8" ref={containerRef}>
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
           <div className="w-full lg:w-1/2">
             <div 
-              className="pulse-chip mb-6 sm:mb-10 opacity-0 animate-fade-in" 
+              className="pulse-chip bg-pulse-950 mb-6 sm:mb-10 opacity-0 animate-fade-in" 
               style={{ animationDelay: "0.1s" }}
             >
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-800 text-white mr-2">01</span>
-              <span className="text-pulse-800">Bem-vindo</span>
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-900 text-white mr-2">01</span>
+              <span className="text-white">Bem-vindo</span>
             </div>
             
             <h1 
@@ -169,7 +169,7 @@ const Hero = () => {
               </a>
               <a 
                 href="#why-humanoid" 
-                className="flex items-center justify-center group w-full sm:w-auto text-center border border-white bg-transparent text-white hover:bg-white hover:text-black transition" 
+                className="flex items-center justify-center group w-full sm:w-auto text-center border border-white bg-transparent text-white hover:bg-white hover:text-black transition-all duration-300" 
                 style={{
                   borderRadius: '1440px',
                   fontSize: '14px',
