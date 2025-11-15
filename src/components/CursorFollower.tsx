@@ -1,26 +1,52 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const CursorFollower = () => {
   const followerRef = useRef<HTMLDivElement>(null);
   const mouse = useRef({ x: window.innerWidth/2, y: window.innerHeight/2 });
   const pos = useRef({ x: window.innerWidth/2, y: window.innerHeight/2 });
+  const [shouldShow, setShouldShow] = useState(false);
 
-  // Detectar touch para esconder no mobile
+  // Detectar touch E tamanho de tela para esconder no mobile
   const isTouchDevice = () => {
     return (
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||
-      navigator.msMaxTouchPoints > 0
+      (navigator as any).msMaxTouchPoints > 0
     );
   };
 
+  const isDesktop = () => {
+    return window.innerWidth >= 768; // Apenas desktop (md breakpoint)
+  };
+
   useEffect(() => {
-    if (isTouchDevice()) return;
+    // Só mostrar se não for touch E for desktop
+    const shouldDisplay = !isTouchDevice() && isDesktop();
+    setShouldShow(shouldDisplay);
+    
+    if (!shouldDisplay) {
+      return;
+    }
+    
     const handleMouseMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
     };
+    
+    const handleResize = () => {
+      if (!isDesktop() || isTouchDevice()) {
+        setShouldShow(false);
+      } else {
+        setShouldShow(true);
+      }
+    };
+    
     document.addEventListener("mousemove", handleMouseMove);
-    followerRef.current!.style.display = 'block';
+    window.addEventListener("resize", handleResize);
+    
+    if (followerRef.current) {
+      followerRef.current.style.display = 'block';
+    }
+    
     let rafId: number;
     const animate = () => {
       // Segue suavemente até o mouse
@@ -33,14 +59,16 @@ const CursorFollower = () => {
       rafId = requestAnimationFrame(animate);
     };
     animate();
+    
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(rafId);
     };
   }, []);
 
-  // Não renderiza em touch
-  if (isTouchDevice()) return null;
+  // Não renderiza em mobile ou touch
+  if (!shouldShow) return null;
 
   return (
     <div

@@ -11,8 +11,16 @@ const HumanoidSection = () => {
 
   // More responsive timing function with shorter duration
   const cardStyle = {
-    height: '60vh',
-    maxHeight: '600px',
+    height: window.innerWidth < 768 ? '75vh' : '60vh', // Maior altura no mobile
+    maxHeight: window.innerWidth < 768 ? '700px' : '600px',
+    borderRadius: '20px',
+    transition: 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
+    willChange: 'transform, opacity'
+  };
+
+  const thirdCardStyle = {
+    height: window.innerWidth < 768 ? '85vh' : '70vh', // Muito maior altura para o último card
+    maxHeight: window.innerWidth < 768 ? '800px' : '750px',
     borderRadius: '20px',
     transition: 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
     willChange: 'transform, opacity'
@@ -116,7 +124,7 @@ const HumanoidSection = () => {
           <div ref={cardsContainerRef} className="relative flex-1 perspective-1000">
             {/* First Card */}
             <div 
-              className={`absolute inset-0 overflow-hidden shadow-xl ${isFirstCardVisible ? 'animate-card-enter' : ''}`} 
+              className={`absolute inset-0 overflow-hidden shadow-xl overflow-y-auto ${isFirstCardVisible ? 'animate-card-enter' : ''}`} 
               style={{
                 ...cardStyle,
                 zIndex: 10,
@@ -142,11 +150,11 @@ const HumanoidSection = () => {
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-3 sm:mb-4">
                     Experiência única<br/>Design personalizado
                   </h3>
-                  <p className="text-white">Personalize cada aspecto do aplicativo para refletir sua identidade visual. Escolha cores, logotipo e marca para uma experiência exclusiva.</p>
-                  <ul className="list-inside list-disc text-base mt-4 text-white">
+                  <p className="text-base sm:text-base text-white leading-relaxed">Personalize cada aspecto do aplicativo para refletir sua identidade visual. Escolha cores, logotipo e marca para uma experiência exclusiva.</p>
+                  <ul className="list-inside list-disc text-base sm:text-base mt-3 sm:mt-4 text-white space-y-1">
                     <li>Personalize cada detalhe do aplicativo</li>
                     <li>Construa sua imagem consistente e memorável</li>
                     <li>Sem necessidade de programação adicional</li>
@@ -157,7 +165,7 @@ const HumanoidSection = () => {
             
             {/* Second Card */}
             <div 
-              className={`absolute inset-0 overflow-hidden shadow-xl ${isSecondCardVisible ? 'animate-card-enter' : ''}`} 
+              className={`absolute inset-0 overflow-hidden shadow-xl overflow-y-auto ${isSecondCardVisible ? 'animate-card-enter' : ''}`} 
               style={{
                 ...cardStyle,
                 zIndex: 20,
@@ -184,11 +192,11 @@ const HumanoidSection = () => {
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-3 sm:mb-4">
                     Escalabilidade superior<br/>Cresça conosco
                   </h3>
-                  <p className="text-white">Nossa infraestrutura em nuvem é altamente escalável, permitindo um crescimento uniforme. Estamos prontos para evoluir junto com o seu sucesso.</p>
-                  <ul className="list-inside list-disc text-base mt-4 text-white">
+                  <p className="text-base sm:text-base text-white leading-relaxed">Nossa infraestrutura em nuvem é altamente escalável, permitindo um crescimento uniforme. Estamos prontos para evoluir junto com o seu sucesso.</p>
+                  <ul className="list-inside list-disc text-base sm:text-base mt-3 sm:mt-4 text-white space-y-1">
                     <li>Infraestrutura em nuvem altamente eficiente</li>
                     <li>Cresça sem preocupações com custos adicionais</li>
                     <li>Alta velocidade e confiabilidade</li>
@@ -199,9 +207,9 @@ const HumanoidSection = () => {
             
             {/* Third Card */}
             <div 
-              className={`absolute inset-0 overflow-hidden shadow-xl ${isThirdCardVisible ? 'animate-card-enter' : ''}`} 
+              className={`absolute inset-0 overflow-hidden shadow-xl overflow-y-auto ${isThirdCardVisible ? 'animate-card-enter' : ''}`} 
               style={{
-                ...cardStyle,
+                ...thirdCardStyle,
                 zIndex: 30,
                 transform: `translateY(${isThirdCardVisible ? activeCardIndex === 2 ? '15px' : '0' : '200px'}) scale(1)`,
                 opacity: isThirdCardVisible ? 1 : 0,
@@ -224,20 +232,17 @@ const HumanoidSection = () => {
                 </div>
               </div>
               
-              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
+              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center pt-8 sm:pt-10 md:pt-12">
                 <div className="max-w-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    Atualizações periódicas<br/>Sempre à frente<br/>
-                    Melhorias contínuas<br/>Inovação constante
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-3">
+                    Atualizações periódicas e melhorias contínuas
                   </h3>
-                  <p className="text-white">Priorizamos manter todos os aplicativos atualizados com as versões mais recentes. Investimos em um fluxo de melhoria contínua para manter todos os aplicativos na vanguarda. Desfrute de todas as melhorias que implementamos, proporcionando uma experiência cada vez mais aprimorada.</p>
-                  <ul className="list-inside list-disc text-base mt-4 text-white">
-                    <li>Maior compatibilidade com Android e iOS</li>  
-                    <li>Acompanhe as novidades do mercado</li>
-                    <li>Reduza os custos com time de tecnologia</li>
-                    <li>Aproveite todas as melhorias e inovações</li>
-                    <li>Valorizamos seu feedback para melhorias contínuas</li>
-                  </ul>
+                  <p className="text-white text-base leading-relaxed mb-3">
+                    Priorizamos manter todos os aplicativos atualizados com as versões mais recentes. Investimos em um fluxo de melhoria contínua para manter todos os aplicativos na vanguarda.
+                  </p>
+                  <p className="text-white text-base leading-relaxed">
+                    Oferecemos maior compatibilidade com Android e iOS, acompanhando as novidades do mercado e reduzindo os custos com time de tecnologia. Aproveite todas as melhorias e inovações, enquanto valorizamos seu feedback para melhorias contínuas.
+                  </p>
                 </div>
               </div>
             </div>
