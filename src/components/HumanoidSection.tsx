@@ -19,8 +19,8 @@ const HumanoidSection = () => {
   };
 
   const thirdCardStyle = {
-    height: window.innerWidth < 768 ? '85vh' : '70vh', // Muito maior altura para o último card
-    maxHeight: window.innerWidth < 768 ? '800px' : '750px',
+    height: window.innerWidth < 768 ? '90vh' : '70vh', // Muito maior altura para o último card
+    maxHeight: window.innerWidth < 768 ? '850px' : '750px',
     borderRadius: '20px',
     transition: 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
     willChange: 'transform, opacity'
@@ -50,7 +50,8 @@ const HumanoidSection = () => {
           
           const sectionRect = sectionRef.current.getBoundingClientRect();
           const viewportHeight = window.innerHeight;
-          const totalScrollDistance = viewportHeight * 2;
+          const isMobile = window.innerWidth < 768;
+          const totalScrollDistance = isMobile ? viewportHeight * 3 : viewportHeight * 2;
           
           // Calculate the scroll progress
           let progress = 0;
@@ -94,7 +95,7 @@ const HumanoidSection = () => {
     <div 
       ref={sectionRef} 
       className="relative" 
-      style={{ height: '300vh' }}
+      style={{ height: window.innerWidth < 768 ? '350vh' : '300vh' }}
     >
       <section className="w-full h-screen py-10 md:py-16 sticky top-0 overflow-hidden bg-white" id="why-humanoid">
         <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col">
@@ -148,7 +149,7 @@ const HumanoidSection = () => {
                 </div>
               </div>
               
-              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
+              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-start pt-14 sm:items-center sm:pt-6 md:pt-8">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-3 sm:mb-4">
                     Experiência única<br/>Design personalizado
@@ -169,7 +170,7 @@ const HumanoidSection = () => {
               style={{
                 ...cardStyle,
                 zIndex: 20,
-                transform: `translateY(${isSecondCardVisible ? activeCardIndex === 1 ? '55px' : '45px' : '200px'}) scale(0.95)`,
+                transform: `translateY(${isSecondCardVisible ? activeCardIndex === 1 ? (window.innerWidth < 768 ? '0px' : '55px') : (window.innerWidth < 768 ? '0px' : '45px') : '200px'}) scale(0.95)`,
                 opacity: isSecondCardVisible ? 1 : 0,
                 pointerEvents: isSecondCardVisible ? 'auto' : 'none'
               }}
@@ -190,7 +191,7 @@ const HumanoidSection = () => {
                 </div>
               </div>
               
-              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
+              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-start pt-16 sm:items-center sm:pt-6 md:pt-8">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-3 sm:mb-4">
                     Escalabilidade superior<br/>Cresça conosco
@@ -232,16 +233,13 @@ const HumanoidSection = () => {
                 </div>
               </div>
               
-              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center pt-8 sm:pt-10 md:pt-12">
+              <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-start pt-16 sm:items-center sm:pt-10 md:pt-12 overflow-y-auto">
                 <div className="max-w-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-3">
+                  <h3 className="text-xl sm:text-2xl md:text-4xl font-display text-white font-bold leading-tight mb-3 sm:mb-4">
                     Atualizações periódicas e melhorias contínuas
                   </h3>
-                  <p className="text-white text-base leading-relaxed mb-3">
-                    Priorizamos manter todos os aplicativos atualizados com as versões mais recentes. Investimos em um fluxo de melhoria contínua para manter todos os aplicativos na vanguarda.
-                  </p>
-                  <p className="text-white text-base leading-relaxed">
-                    Oferecemos maior compatibilidade com Android e iOS, acompanhando as novidades do mercado e reduzindo os custos com time de tecnologia. Aproveite todas as melhorias e inovações, enquanto valorizamos seu feedback para melhorias contínuas.
+                  <p className="text-white text-sm sm:text-base leading-relaxed">
+                    Mantemos todos os aplicativos atualizados com as versões mais recentes, oferecendo maior compatibilidade com Android e iOS. Investimos em melhorias contínuas para reduzir custos com tecnologia e valorizar seu feedback.
                   </p>
                 </div>
               </div>

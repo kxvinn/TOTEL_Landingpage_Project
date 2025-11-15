@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const CursorFollower = () => {
   const followerRef = useRef<HTMLDivElement>(null);
-  const mouse = useRef({ x: window.innerWidth/2, y: window.innerHeight/2 });
-  const pos = useRef({ x: window.innerWidth/2, y: window.innerHeight/2 });
-  const [shouldShow, setShouldShow] = useState(false);
+  const mouse = useRef({ x: 0, y: 0 });
+  const pos = useRef({ x: 0, y: 0 });
 
   // Detectar touch E tamanho de tela para esconder no mobile
   const isTouchDevice = () => {
@@ -21,10 +20,7 @@ const CursorFollower = () => {
 
   useEffect(() => {
     // Só mostrar se não for touch E for desktop
-    const shouldDisplay = !isTouchDevice() && isDesktop();
-    setShouldShow(shouldDisplay);
-    
-    if (!shouldDisplay) {
+    if (isTouchDevice() || !isDesktop()) {
       return;
     }
     
@@ -32,26 +28,13 @@ const CursorFollower = () => {
       mouse.current = { x: e.clientX, y: e.clientY };
     };
     
-    const handleResize = () => {
-      if (!isDesktop() || isTouchDevice()) {
-        setShouldShow(false);
-      } else {
-        setShouldShow(true);
-      }
-    };
-    
     document.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("resize", handleResize);
-    
-    if (followerRef.current) {
-      followerRef.current.style.display = 'block';
-    }
     
     let rafId: number;
     const animate = () => {
       // Segue suavemente até o mouse
-      pos.current.x += (mouse.current.x - pos.current.x) * 0.18;
-      pos.current.y += (mouse.current.y - pos.current.y) * 0.18;
+      pos.current.x += (mouse.current.x - pos.current.x) * 0.2;
+      pos.current.y += (mouse.current.y - pos.current.y) * 0.2;
       const f = followerRef.current;
       if (f) {
         f.style.transform = `translate3d(${pos.current.x - 11}px,${pos.current.y - 11}px,0)`;
@@ -62,27 +45,26 @@ const CursorFollower = () => {
     
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(rafId);
     };
   }, []);
 
   // Não renderiza em mobile ou touch
-  if (!shouldShow) return null;
+  if (isTouchDevice() || !isDesktop()) return null;
 
   return (
     <div
       ref={followerRef}
       style={{
         position: "fixed",
-        left: 0, top: 0,
-        width: 22, height: 22,
+        left: 0, 
+        top: 0,
+        width: 22, 
+        height: 22,
         borderRadius: "50%",
         background: "rgba(60, 128, 100, 0.89)",
         zIndex: 999999,
         pointerEvents: "none",
-        transition: "background 0.3s",
-        display: "none",
         boxShadow: "0 1px 8px 0 rgba(0,0,0,.10)"
       }}
     ></div>
