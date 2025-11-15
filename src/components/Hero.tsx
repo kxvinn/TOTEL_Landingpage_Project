@@ -127,8 +127,8 @@ const Hero = () => {
               className="pulse-chip mb-6 sm:mb-10 opacity-0 animate-fade-in" 
               style={{ animationDelay: "0.1s" }}
             >
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">01</span>
-              <span>Bem-vindo</span>
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-800 text-white mr-2">01</span>
+              <span className="text-pulse-800">Bem-vindo</span>
             </div>
             
             <h1 
@@ -153,7 +153,7 @@ const Hero = () => {
                 href="#contato" 
                 className="flex items-center justify-center group w-full sm:w-auto text-center" 
                 style={{
-                  backgroundColor: '#FE5C02',
+                  backgroundColor: '#009b72',
                   borderRadius: '1440px',
                   boxSizing: 'border-box',
                   color: '#FFFFFF',
