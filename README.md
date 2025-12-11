@@ -1,6 +1,6 @@
 ## Project info
 
-**URL**: totel-personal-project.netlify.app
+**URL**: https://www.totel-personal-project.netlify.app
 
 ## What technologies are used for this project?
 
